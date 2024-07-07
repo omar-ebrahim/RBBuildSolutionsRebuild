@@ -28,6 +28,19 @@ export const BuildType = defineType({
             type: 'array',
             of: [{ type: 'block' }],
             validation: Rule => Rule.required().error('Description is required')
-        })
+        }),
+        defineField({
+            title: 'Featured Image',
+            name: 'featuredImage',
+            type: 'image',
+            fields: [
+                defineField({ 
+                  name: 'alt',
+                  type: 'string',
+                  validation: Rule => Rule.required().error('Alt is required for the featured image.')
+                })
+              ],
+            validation: Rule => Rule.required().error('Featured Image is required')
+        }),
     ]
 });
